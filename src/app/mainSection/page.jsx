@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress"
 import { IoIosArrowDown } from "react-icons/io";
 import MainTab from "../Tabs/page";
 
+
 const Batches = () => {
 
     const [progress, setProgress] = React.useState(13)
@@ -51,8 +52,9 @@ const Batches = () => {
 
                 <div className="my-1"><Progress value={progress} className="w-[100%]" /></div>
 
-                <div>
+                <div className="flex justify-between">
                     <MainTab />
+                    
                 </div>
             </div>
         </div>
