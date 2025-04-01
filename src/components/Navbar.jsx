@@ -1,4 +1,5 @@
-
+import { RiUserFill } from "react-icons/ri";
+import { LuBellRing } from "react-icons/lu";
 
 const Navbar = () => {
 
@@ -11,8 +12,8 @@ const Navbar = () => {
             <div className="flex-none gap-2">
                 <div className="form-control mr-20">
                     <div className="flex gap-4">
-                        <button className="btn btn-xs">x</button>
-                        <button className="btn btn-xs">y</button>
+                        <button className="text-2xl"><RiUserFill /></button>
+                        <button className="text-2xl"><LuBellRing /></button>
 
                         <div className="border border-t border-black ml-10"></div>
                     </div>
