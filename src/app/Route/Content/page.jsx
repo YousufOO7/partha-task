@@ -10,6 +10,7 @@ import { PiNotePencil } from "react-icons/pi";
 import { LuArrowDownUp } from "react-icons/lu";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { AiOutlineSearch } from "react-icons/ai";
+import ChapterPage from '../Chapter/page';
 
 
 function CustomTabPanel(props) {
@@ -67,13 +68,13 @@ const ContentPage = () => {
                 </Tabs>
                 <div className="flex gap-3 justify-between">
                     <div className="relative mr-10 mt-2">
-                            <input
-                                type="text"
-                                className="px-5 w-2/3  border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:ring-gray-400"
-                            />
-                            <span className="absolute left-2 top-1/4 transform -translate-y-1/4 text-gray-500">
-                                <AiOutlineSearch />
-                            </span>
+                        <input
+                            type="text"
+                            className="px-5 w-2/3  border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:ring-gray-400"
+                        />
+                        <span className="absolute left-2 top-1/4 transform -translate-y-1/4 text-gray-500">
+                            <AiOutlineSearch />
+                        </span>
                     </div>
 
 
@@ -90,7 +91,7 @@ const ContentPage = () => {
             </Box>
 
             <CustomTabPanel value={value} index={0}>
-                Content
+                <ChapterPage />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
                 Course Details
