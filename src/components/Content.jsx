@@ -10,7 +10,7 @@ import { PiNotePencil } from "react-icons/pi";
 import { LuArrowDownUp } from "react-icons/lu";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { AiOutlineSearch } from "react-icons/ai";
-import ChapterPage from '../Chapter/page';
+import ChapterPage from './Chapter';
 
 
 function CustomTabPanel(props) {

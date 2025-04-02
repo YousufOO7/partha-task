@@ -1,4 +1,5 @@
-import BannerPage from "../banner/page";
+import BannerPage from "@/components/Banner";
+
 
 
 export default function Home() {

@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import { PiDotsThreeOutlineFill } from "react-icons/pi";
 import { GoTrash } from "react-icons/go";
 import { FiDownload } from "react-icons/fi";
-import Materials from '../Route/Materials/page';
+import Materials from './Material';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;

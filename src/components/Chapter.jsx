@@ -2,7 +2,7 @@ import React from 'react';
 import { GoArrowLeft } from "react-icons/go";
 import { MdDriveFolderUpload, MdOutlineArrowForwardIos } from "react-icons/md";
 import { FaEye, FaInfo } from "react-icons/fa";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { GoFileDirectoryFill } from "react-icons/go";
 import { FiFileText } from "react-icons/fi";
 import { LuFilePlus } from "react-icons/lu";
@@ -11,8 +11,19 @@ import { CgFormatText } from "react-icons/cg";
 import { ImPaste } from "react-icons/im";
 
 const ChapterPage = () => {
+
+    const [data, setData] = React.useState({});
+
+    React.useEffect(() => {
+        fetch("./data.json")
+        .then(res => res.json())
+        .then(data => {
+            setData(data)
+        })
+    }, [])
+
     return (
-        <div>
+        <div className=''>
             <div className='flex justify-between -mt-3'>
                 <div className='flex items-center gap-2 text-sm'>
                     <button className='bg-black text-white p-1 rounded-full'><GoArrowLeft /></button>
@@ -51,8 +62,10 @@ const ChapterPage = () => {
             </div>
 
             <div className='border border-t border-r-0 border-l mt-1'>
-                <div className='grid grid-cols-5 border-b'>
-                    <div className='col-span-4 border-r border-black '>
+                <div className='lg:flex justify-between border-b'>
+                    <div className='lg:w-[80%] border-r-[2px] '>
+
+                        {/* chapter 1 */}
                         <div className='flex justify-between mt-3 px-2'>
                             {/* left chapter */}
                             <div className='flex items-center gap-1'>
@@ -60,7 +73,7 @@ const ChapterPage = () => {
                                 <button><GoFileDirectoryFill className='text-3xl' /></button>
                                 <div className='flex items-center gap-2'>
                                     <a href='#' className='underline font-semibold'>Chapter 1.1</a>
-                                    <button><MdOutlineArrowForwardIos /></button>
+                                    <button><IoIosArrowUp className='text-xl font-bold' /></button>
                                 </div>
                             </div>
 
@@ -87,55 +100,59 @@ const ChapterPage = () => {
                             </div>
                         </div>
 
+                        {/* visibile */}
                         <div className='flex justify-between mt-20'>
                             <div className='flex-1'></div>
 
                             <div className='flex-1 text-xs'>
                                 <p className='flex items-center'>
                                     <span className='font-semibold mr-1'>Visible to:</span>
-                                    <span className='text-gray-400'>Batch 1, Batch 2, Batch 3, For both online & physical students</span>
+                                    <span className='text-gray-600'>Batch 1, Batch 2, Batch 3, For both online & physical students</span>
                                 </p>
                             </div>
                         </div>
 
                     </div>
 
-
-                    <div className='col-span-1 pl-2 py-1'>
+                    {/* data */}
+                    <div className='lg:w-[20%] pl-2 py-1'>
                         <p className='text-sm'>
                             <span className='font-semibold mr-1'>Created on :</span>
-                            <span>25/02/2025 10:35 pm</span>
+                            <span>{data?.created_on}</span>
                         </p>
                         <p className=' text-sm'>
                             <span className='font-semibold mr-1'>Created by :</span>
-                            Sir</p>
+                            <span>{data?.created_by}</span>
+                            </p>
                         <p className=' text-sm'>
                             <span className='font-semibold mr-1'>Last Modified :</span>
-                            <span>Friday, 25/02/2025 10:35 pm</span>
+                            <span>{data?.last_modified}</span>
                         </p>
                         <p className=' text-sm'>
                             <span className='font-semibold mr-1'>Last Modified by :</span>
-                            Sir</p>
+                            <span>{data?.last_modified_by}</span>
+                            </p>
                         <p className=' text-sm'>
                             <span className='font-semibold mr-1'>Kind :</span>
-                            PDF Docoment</p>
+                            <span>{data?.kind}</span>
+                            </p>
                         <p className=' text-sm'>
                             <span className='font-semibold mr-1'>Size :</span>
-                            23 MB</p>
+                            <span>{data?.size}</span>
+                            </p>
                     </div>
                 </div>
             </div>
 
             {/* chapter 2 */}
             <div className='border border-b border-t-0 border-r-0'>
-                <div className='flex justify-between py-3 px-2'>
+                <div className='flex justify-between py-5 px-2'>
                     {/* left chapter */}
                     <div className='flex items-center gap-1'>
                         <input type="checkbox" className="checkbox" />
                         <button><FiFileText className='text-3xl' /></button>
                         <div className='flex items-center gap-2'>
-                            <a href='#' className='font-semibold'>Chapter 2 revision notes.pdf</a>
-                            <button><MdOutlineArrowForwardIos /></button>
+                            <a href='#' className='font-bold'>Chapter 2 revision notes.pdf</a>
                         </div>
                     </div>
 
@@ -164,7 +181,7 @@ const ChapterPage = () => {
             </div>
 
             {/* upload data folder file */}
-            <div className='border border-b border-t-0 border-r-0 py-2'>
+            <div className='border border-b border-t-0 border-r-0 py-4'>
                 <div className='flex justify-evenly gap-4'>
                     <div className='flex items-center gap-2 border rounded-lg border-black border-dashed p-3'>
                         <span className='bg-black text-white'><LuFilePlus /></span>

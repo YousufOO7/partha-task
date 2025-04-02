@@ -1,9 +1,9 @@
 import React from 'react';
-import ContentPage from '../Content/page';
+import ContentPage from './Content';
 
 const Materials = () => {
     return (
-        <div className='-mt-4 p-2 bg-white  h-[64vh] rounded-lg'>
+        <div className='-mt-3 p-2 bg-white  h-[68vh] rounded-lg'>
             <ContentPage />
         </div>
     );
